@@ -1,0 +1,19 @@
+<br/>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <nav>
+        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab"
+             routerLink="./about" role="tab" aria-controls="nav-about" aria-selected="false">Home</a>
+
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+             routerLink="./contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+        </div>
+      </nav>
+      <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
