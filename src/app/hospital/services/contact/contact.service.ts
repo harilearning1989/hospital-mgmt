@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
+import {environment} from "../../../../environments/environment";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {Contact} from "../../models/contact";
 import {throwError} from "rxjs";
-import {Contact} from "../models/contact";
-import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
-
   private httpLink = {
     contactSaveUrl: environment.apiUrl + 'contact/save'
   }

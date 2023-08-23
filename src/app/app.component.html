@@ -11,13 +11,40 @@
           <li class="nav-item">
             <a class="nav-link text-danger" routerLink="./contact" href="#">Contact Us</a>
           </li>
-          <li class="nav-item" style="padding-left: 750px">
+         <!-- <li class="nav-item" style="padding-left: 750px">
             <a class="nav-link text-danger" routerLink="./patient" href="#">Register Patient</a>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link text-danger" routerLink="./createPatient" href="#">Register Patient</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-danger" routerLink="./login" href="#">Login</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" routerLink="./viewPatient" href="#">View Patients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" routerLink="./viewDoctor" href="#">View Doctor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" routerLink="./checkAllAppointments" href="#">Check All Appointments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" routerLink="./createDoctor" href="#">Register Doctor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" routerLink="./createAdmin" href="#">Register Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" routerLink="./viewAdmin" href="#">View Admin</a>
+          </li>
         </ul>
+       <!-- <div>&nbsp;&nbsp;<span class="text-bg-danger">{{userName}}</span><br/>
+          <button class="btn-primary" (click)="logout()">Logout</button>
+        </div>-->
+        <div>
+          <a class="nav-link text-danger" routerLink="./logout" href="#">Logout</a>
+        </div>
       </nav>
       <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent" style="padding-left: 20px">
         <router-outlet></router-outlet>
@@ -30,22 +57,40 @@
 <!--
 ng g m hospital/modules/home
 ng g m hospital/modules/login
-ng g m hospital/modules/patient
 ng g m hospital/modules/admin
-ng g m hospital/modules/doctor
+
 ng g m hospital/modules/pageNotFound
 ng g m hospital/modules/about
 ng g m hospital/modules/contact
 ng g c hospital/components/home
-ng g c hospital/components/login
-ng g c hospital/components/admin
-ng g c hospital/components/doctor
-ng g c hospital/components/patient
+
+ng g m hospital/modules/patient/view
+ng g m hospital/modules/patient/create
+ng g m hospital/modules/patient/update
+
+ng g m hospital/modules/doctor/view
+ng g m hospital/modules/doctor/create
+ng g m hospital/modules/doctor/update
+
+ng g m hospital/modules/admin/view
+ng g m hospital/modules/admin/create
+ng g m hospital/modules/admin/update
 
 ng g c hospital/components/home --module=hospital/modules/home/home.module.ts
-ng g c hospital/components/patient --module=hospital/modules/patient/patient.module.ts
+ng g c hospital/components/patient/view --module=hospital/modules/patient/patient.module.ts
+ng g c hospital/components/patient/create --module=hospital/modules/patient/patient.module.ts
+ng g c hospital/components/patient/update --module=hospital/modules/patient/patient.module.ts
+
+ng g c hospital/components/doctor/view --module=hospital/modules/doctor/view/view.module.ts
+ng g c hospital/components/doctor/create --module=hospital/modules/doctor/create/create.module.ts
+ng g c hospital/components/doctor/update --module=hospital/modules/doctor/update/update.module.ts
+
+ng g c hospital/components/admin/view --module=hospital/modules/admin/view/view.module.ts
+ng g c hospital/components/admin/create --module=hospital/modules/admin/create/create.module.ts
+ng g c hospital/components/admin/update --module=hospital/modules/admin/update/update.module.ts
+
 ng g c hospital/components/admin --module=hospital/modules/admin/admin.module.ts
-ng g c hospital/components/doctor --module=hospital/modules/doctor/doctor.module.ts
+
 ng g c hospital/components/login --module=hospital/modules/login/login.module.ts
 ng g c hospital/components/pageNotFound --module=hospital/modules/page-not-found/page-not-found.module.ts
 ng g c hospital/components/about --module=hospital/modules/about/about.module.ts
@@ -68,9 +113,14 @@ sudo npm i bootstrap-icons --save
 
 <!--
 ng g s hospital/services/contact
+ng g s hospital/services/patient/patient
+ng g s hospital/services/contact/contact
+ng g s hospital/services/login/login
 ng g class hospital/util/Utils
 ng g class hospital/models/contact
 ng g class hospital/validations/InputValidation
+
+ng g class hospital/models/patient
 
 ng g environments
 -->

@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PatientComponent } from '../../components/patient/patient.component';
+import { CreateComponent } from '../../../components/admin/create/create.component';
 import {RouterModule, Routes} from "@angular/router";
 
-
 const routes: Routes = [
-  { path: '', component: PatientComponent }
+  {path: '', component: CreateComponent}
 ];
 
 @NgModule({
   declarations: [
-    PatientComponent
+    CreateComponent
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -18,4 +17,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class PatientModule { }
+export class CreateModule { }
