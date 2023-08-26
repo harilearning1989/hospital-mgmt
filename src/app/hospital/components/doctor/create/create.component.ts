@@ -16,6 +16,9 @@ export class CreateComponent implements OnInit {
   submitted = false;
   selectedRoles: string[] = [];
   errorMessage: string;
+  bloodGroupList: any = ['A+', 'A-', 'B+', 'B-','AB+', 'AB-', 'O+', 'O-'];
+  genderList: any = ['Male', 'Female', 'Others'];
+  specialistDoctor: any = ['',''];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,19 +47,6 @@ export class CreateComponent implements OnInit {
     this.form.value.roles = this.selectedRoles;
     console.log(this.form.value);
     this.loading = true;
-    /*this.loginService.register(this.form.value)
-      .subscribe({
-        next: () => {
-          console.log("Success Logged In");
-          this.alertService.success('Registration successful', { keepAfterRouteChange: true });
-          this.router.navigate(['../login'], { relativeTo: this.route });
-        },
-        error: error => {
-          console.log("Register Failed ::"+error);
-          //this.alertService.error(error);
-          this.loading = false;
-        }
-      });*/
 
     this.patientService.register(this.form.value)
       .subscribe((data: any) => {
@@ -87,6 +77,35 @@ export class CreateComponent implements OnInit {
     return Utils.omitSpecialChars(event);
   }
 
+  allowOnlyNumbers(event: KeyboardEvent) {
+    return Utils.allowOnlyNumbers(event);
+  }
+
+  // Choose city using select dropdown
+  changeBloodGrp(e: any) {
+    console.log(e.value)
+    // @ts-ignore
+    this.getBloodGrp.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  get getBloodGrp() {
+    return this.form.get('bloodGroup');
+  }
+
+  changeGender(e: any) {
+    console.log(e.value)
+    // @ts-ignore
+    this.getGender.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
+
+  get getGender() {
+    return this.form.get('gender');
+  }
+
   omitSpecialCharsAndNumbers(event: KeyboardEvent) {
     return Utils.omitSpecialCharsAndNumbers(event);
   }
@@ -99,12 +118,21 @@ export class CreateComponent implements OnInit {
       email: ['', [Validators.required, Validators.email,
         Validators.maxLength(20),
         Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      phone: ['', [Validators.required,
+      contact: ['', [Validators.required,Validators.pattern("^[0-9]*$"),
         Validators.minLength(10), Validators.maxLength(10),
         InputValidation.cannotContainSpace]],
       username: ['', [Validators.required, Validators.minLength(4),
         Validators.maxLength(20), InputValidation.cannotContainSpace]],
-      roles: ['', Validators.required],
+      gender: ['', [Validators.required, Validators.minLength(4),
+        Validators.maxLength(20), InputValidation.cannotContainSpace]],
+      bloodGroup: ['', [Validators.required, Validators.minLength(4),
+        Validators.maxLength(20), InputValidation.cannotContainSpace]],
+      address: ['', [Validators.required, Validators.minLength(4),
+        Validators.maxLength(20), InputValidation.cannotContainSpace]],
+      city: ['', [Validators.required, Validators.minLength(4),
+        Validators.maxLength(20), InputValidation.cannotContainSpace]],
+      pincode: ['', [Validators.required, Validators.minLength(6),
+        Validators.maxLength(6), InputValidation.cannotContainSpace]],
       password: ['', [Validators.required, Validators.minLength(6),
         Validators.maxLength(20), InputValidation.cannotContainSpace]]
     });

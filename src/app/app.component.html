@@ -30,6 +30,9 @@
             <a class="nav-link text-danger" routerLink="./checkAllAppointments" href="#">Check All Appointments</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link text-danger" routerLink="./viewMyAppointments" href="#">View My Appointments</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-danger" routerLink="./createDoctor" href="#">Register Doctor</a>
           </li>
           <li class="nav-item">
@@ -71,10 +74,12 @@ ng g m hospital/modules/patient/update
 ng g m hospital/modules/doctor/view
 ng g m hospital/modules/doctor/create
 ng g m hospital/modules/doctor/update
+ng g m hospital/modules/doctor/viewAppointments
 
 ng g m hospital/modules/admin/view
 ng g m hospital/modules/admin/create
 ng g m hospital/modules/admin/update
+ng g m hospital/modules/admin/checkAllAppointments
 
 ng g c hospital/components/home --module=hospital/modules/home/home.module.ts
 ng g c hospital/components/patient/view --module=hospital/modules/patient/patient.module.ts
@@ -84,10 +89,12 @@ ng g c hospital/components/patient/update --module=hospital/modules/patient/pati
 ng g c hospital/components/doctor/view --module=hospital/modules/doctor/view/view.module.ts
 ng g c hospital/components/doctor/create --module=hospital/modules/doctor/create/create.module.ts
 ng g c hospital/components/doctor/update --module=hospital/modules/doctor/update/update.module.ts
+ng g c hospital/components/doctor/viewAppointments --module=hospital/modules/doctor/view-appointments/view-appointments.module.ts
 
 ng g c hospital/components/admin/view --module=hospital/modules/admin/view/view.module.ts
 ng g c hospital/components/admin/create --module=hospital/modules/admin/create/create.module.ts
 ng g c hospital/components/admin/update --module=hospital/modules/admin/update/update.module.ts
+ng g c hospital/components/admin/checkAllAppointments --module=hospital/modules/admin/check-all-appointments/check-all-appointments.module.ts
 
 ng g c hospital/components/admin --module=hospital/modules/admin/admin.module.ts
 

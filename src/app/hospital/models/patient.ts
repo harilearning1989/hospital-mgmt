@@ -5,7 +5,13 @@ export class Patient {
   username?: string;
   password?: string;
   email?: string;
-  phone?: string;
-  roles?: string[];
-  token?: string;
+  gender?: string;
+  contact?: string;
+  age?: string;
+  bloodGroup?: string;
+  address?: string;
+  city?: string;
+  pincode?: string;
+  createdDate?: string;
+  updatedDate?: string;
 }

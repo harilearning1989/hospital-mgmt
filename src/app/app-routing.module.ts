@@ -11,10 +11,14 @@ const updatePatientModule = () => import('./hospital/modules/patient/update/upda
 const loginModule = () => import('./hospital/modules/login/login.module').then(x => x.LoginModule);
 const adminViewModule = () => import('./hospital/modules/admin/view/view.module').then(x => x.ViewModule);
 const adminCreateModule = () => import('./hospital/modules/admin/create/create.module').then(x => x.CreateModule);
-const adminUpdateModule = () => import('./hospital/modules/admin//view/view.module').then(x => x.ViewModule);
+const adminUpdateModule = () => import('./hospital/modules/admin/view/view.module').then(x => x.ViewModule);
+const checkAllAppointmentsModule = () =>
+  import('./hospital/modules/admin/check-all-appointments/check-all-appointments.module')
+    .then(x => x.CheckAllAppointmentsModule);
 const createDoctorModule = () => import('./hospital/modules/doctor/create/create.module').then(x => x.CreateModule);
 const viewDoctorModule = () => import('./hospital/modules/doctor/view/view.module').then(x => x.ViewModule);
 const updateDoctorModule = () => import('./hospital/modules/doctor/update/update.module').then(x => x.UpdateModule);
+const viewMyAppointmentsModule = () => import('./hospital/modules/doctor/view-appointments/view-appointments.module').then(x => x.ViewAppointmentsModule);
 
 const routes: Routes = [
   {path: '', redirectTo: '', pathMatch: 'full'},
@@ -22,6 +26,7 @@ const routes: Routes = [
   {path: 'about', loadChildren: aboutModule},
   {path: 'contact', loadChildren: contactModule},
   {path: 'login', loadChildren: loginModule},
+  {path: 'viewMyAppointments', loadChildren: viewMyAppointmentsModule},
 
   {path: 'createPatient', loadChildren: createPatientModule},
   {path: 'viewPatient', loadChildren: viewPatientModule},
@@ -30,6 +35,7 @@ const routes: Routes = [
   {path: 'createAdmin', loadChildren: adminCreateModule},
   {path: 'viewAdmin', loadChildren: adminViewModule},
   {path: 'updateAdmin', loadChildren: adminUpdateModule},
+  {path: 'checkAllAppointments', loadChildren: checkAllAppointmentsModule},
 
   {path: 'createDoctor', loadChildren: createDoctorModule},
   {path: 'viewDoctor', loadChildren: viewDoctorModule},
