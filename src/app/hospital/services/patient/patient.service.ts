@@ -97,4 +97,9 @@ export class PatientService {
         return x;
       }));
   }
+
+  users(): Observable<any>{
+    return this.http.get('https://jsonplaceholder.typicode.com/users');
+
+  }
 }

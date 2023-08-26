@@ -95,18 +95,6 @@
           </td>
           <td>
             <div class="mb-3">
-              <label class="form-label">Specialist</label>
-              <select class="form-control" (change)="changeBloodGrp($event)" formControlName="specialist">
-                <option value="">Choose Specialist</option>
-                <option *ngFor="let special of specialistDoctor" >{{special}}</option>
-              </select>
-              <div class="invalid-feedback" *ngIf="f.bloodGroup.errors?.required">
-                <sup>*</sup>Please Select Specialist
-              </div>
-            </div>
-          </td>
-          <td>
-            <div class="mb-3">
               <label class="form-label">Blood Group</label>
               <select class="form-control" (change)="changeBloodGrp($event)" formControlName="bloodGroup">
                 <option value="">Choose Blood Group</option>
@@ -117,8 +105,35 @@
               </div>
             </div>
           </td>
+          <td>
+            <div class="mb-3">
+              <label class="form-label">Specialist</label>
+              <select class="form-control" (change)="changeBloodGrp($event)" formControlName="specialist">
+                <option value="">Choose Specialist</option>
+                <option *ngFor="let special of specialistDoctor" value="special">{{special}}</option>
+              </select>
+              <div class="invalid-feedback" *ngIf="f.specialist.errors?.required">
+                <sup>*</sup>Please Select Specialist
+              </div>
+            </div>
+          </td>
+
         </tr>
         <tr>
+          <td>
+            <div class="mb-3">
+              <label class="form-label">Experience</label>
+              <input type="text" formControlName="experience" class="form-control"
+                     placeholder="Enter Experience"
+                     (keypress)="omitSpecialChars($event)"
+                     [ngClass]="{ 'is-invalid': submitted && f.experience.errors }"/>
+              <div *ngIf="submitted && f.experience.errors" class="invalid-feedback">
+                <div *ngIf="f.experience.errors.required">Experience is required</div>
+                <div *ngIf="f.experience.errors.cannotContainSpace">Experience cannot contain spaces</div>
+                <div *ngIf="f.experience.errors.minlength">Experience must be at least 4 characters</div>
+              </div>
+            </div>
+          </td>
           <td>
             <div class="mb-3">
               <label class="form-label">Contact</label>
@@ -137,10 +152,9 @@
           <td>
             <div class="mb-3">
               <label class="form-label">Address</label>
-              <input type="text" formControlName="address" class="form-control"
+              <textarea type="text" formControlName="address" class="form-control"
                      placeholder="Enter Address"
-                     (keypress)="omitSpecialChars($event)"
-                     [ngClass]="{ 'is-invalid': submitted && f.address.errors }"/>
+                        [ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
               <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
                 <div *ngIf="f.address.errors.required">Address is required</div>
                 <div *ngIf="f.address.errors.cannotContainSpace">Address cannot contain spaces</div>

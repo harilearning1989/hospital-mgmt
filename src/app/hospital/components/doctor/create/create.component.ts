@@ -16,9 +16,30 @@ export class CreateComponent implements OnInit {
   submitted = false;
   selectedRoles: string[] = [];
   errorMessage: string;
-  bloodGroupList: any = ['A+', 'A-', 'B+', 'B-','AB+', 'AB-', 'O+', 'O-'];
+  bloodGroupList: any = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
   genderList: any = ['Male', 'Female', 'Others'];
-  specialistDoctor: any = ['',''];
+  specialistDoctor: any =
+    ['Audiologists',
+      'Anesthesiologist',
+      'Cardiologists',
+      'Cardiothoracic Surgeon',
+      'Dentist',
+      'Dermatologist',
+      'Endocrinologist',
+      'ENT Specialists',
+      'Gynecologists',
+      'Neurologists',
+      'Nephrologist',
+      'Oncologists',
+      'Orthopedic Surgeon',
+      'Ophthalmologist',
+      'Pediatrician',
+      'Psychiatrists',
+      'Pulmonologists',
+      'Surgeon',
+      'Physician executive',
+      'Radiologist',
+      'Veterinarian'];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,7 +72,7 @@ export class CreateComponent implements OnInit {
     this.patientService.register(this.form.value)
       .subscribe((data: any) => {
           console.log("Submitted Successfully");
-          this.errorMessage = data.status +' '+ data.message;
+          this.errorMessage = data.status + ' ' + data.message;
           this.loading = false;
           this.submitted = false;
           this.formFields();
@@ -81,7 +102,6 @@ export class CreateComponent implements OnInit {
     return Utils.allowOnlyNumbers(event);
   }
 
-  // Choose city using select dropdown
   changeBloodGrp(e: any) {
     console.log(e.value)
     // @ts-ignore
@@ -109,6 +129,7 @@ export class CreateComponent implements OnInit {
   omitSpecialCharsAndNumbers(event: KeyboardEvent) {
     return Utils.omitSpecialCharsAndNumbers(event);
   }
+
   private formFields() {
     this.form = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(4),
@@ -118,7 +139,7 @@ export class CreateComponent implements OnInit {
       email: ['', [Validators.required, Validators.email,
         Validators.maxLength(20),
         Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      contact: ['', [Validators.required,Validators.pattern("^[0-9]*$"),
+      contact: ['', [Validators.required, Validators.pattern("^[0-9]*$"),
         Validators.minLength(10), Validators.maxLength(10),
         InputValidation.cannotContainSpace]],
       username: ['', [Validators.required, Validators.minLength(4),
@@ -128,6 +149,10 @@ export class CreateComponent implements OnInit {
       bloodGroup: ['', [Validators.required, Validators.minLength(4),
         Validators.maxLength(20), InputValidation.cannotContainSpace]],
       address: ['', [Validators.required, Validators.minLength(4),
+        Validators.maxLength(20), InputValidation.cannotContainSpace]],
+      specialist: ['', [Validators.required, Validators.minLength(4),
+        Validators.maxLength(20), InputValidation.cannotContainSpace]],
+      experience: ['', [Validators.required, Validators.minLength(4),
         Validators.maxLength(20), InputValidation.cannotContainSpace]],
       city: ['', [Validators.required, Validators.minLength(4),
         Validators.maxLength(20), InputValidation.cannotContainSpace]],
