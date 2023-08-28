@@ -1,1 +1,53 @@
-<p>view Doctor works!</p>
+<br/>
+<table class="table table-striped table-bordered table-sm row-border hover"
+       id="patientDataTable">
+  <thead>
+  <tr>
+    <th>Doctor</th>
+    <th>Doctor Name</th>
+    <th>Email</th>
+    <th>Specialist</th>
+    <th>Experience</th>
+    <th>Age</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of data" (click)="showPatientHistoryOpenPopUp(user)">
+    <td>{{ user.name }}</td>
+    <td>{{ user.username }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phone }}</td>
+    <td>{{ user.address.street }}</td>
+    <td> {{ user.address.city }}</td>
+    <td>{{ user.address.street }}</td>
+    <td> {{ user.address.city }}</td>
+    <td> {{ user.address.city }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="modal" tabindex="-1" role="dialog"
+     [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" style="max-width: 80%;" role="document">
+    <div class="modal-content" >
+      <div class="modal-header align-content-center" style="height: 35px">
+        <h6 class="modal-title text-danger" style="padding-left: 500px">Doctor History Recent To Old</h6>
+        <button type="button" class="close btn btn-danger" (click)="showPatientHistoryClosePopup()"
+                data-dismiss="modal">
+          ×
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-history></app-history>
+      </div>
+      <div class="modal-footer align-content-center" style="height: 40px">
+        <button type="button" class="btn btn-danger" (click)="showPatientHistoryClosePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

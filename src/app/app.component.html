@@ -70,11 +70,13 @@ ng g c hospital/components/home
 ng g m hospital/modules/patient/view
 ng g m hospital/modules/patient/create
 ng g m hospital/modules/patient/update
+ng g m hospital/modules/patient/history
 
 ng g m hospital/modules/doctor/view
 ng g m hospital/modules/doctor/create
 ng g m hospital/modules/doctor/update
 ng g m hospital/modules/doctor/viewAppointments
+ng g m hospital/modules/doctor/history
 
 ng g m hospital/modules/admin/view
 ng g m hospital/modules/admin/create
@@ -85,11 +87,13 @@ ng g c hospital/components/home --module=hospital/modules/home/home.module.ts
 ng g c hospital/components/patient/view --module=hospital/modules/patient/patient.module.ts
 ng g c hospital/components/patient/create --module=hospital/modules/patient/patient.module.ts
 ng g c hospital/components/patient/update --module=hospital/modules/patient/patient.module.ts
+ng g c hospital/components/patient/history --module=hospital/modules/patient/history/history.module.ts
 
 ng g c hospital/components/doctor/view --module=hospital/modules/doctor/view/view.module.ts
 ng g c hospital/components/doctor/create --module=hospital/modules/doctor/create/create.module.ts
 ng g c hospital/components/doctor/update --module=hospital/modules/doctor/update/update.module.ts
 ng g c hospital/components/doctor/viewAppointments --module=hospital/modules/doctor/view-appointments/view-appointments.module.ts
+ng g c hospital/components/doctor/history --module=hospital/modules/doctor/history/history.module.ts
 
 ng g c hospital/components/admin/view --module=hospital/modules/admin/view/view.module.ts
 ng g c hospital/components/admin/create --module=hospital/modules/admin/create/create.module.ts
@@ -128,8 +132,14 @@ ng g s hospital/services/login/login
 ng g class hospital/util/Utils
 ng g class hospital/models/contact
 ng g class hospital/validations/InputValidation
+ng g s hospital/services/doctor/doctor
+ng g s hospital/services/admin/admin
+ng g s hospital/services/history/history
 
 ng g class hospital/models/patient
+ng g class hospital/models/admin
+ng g class hospital/models/PatientHistory
+ng g class hospital/models/DoctorHistory
 
 ng g environments
 -->
