@@ -1,32 +1,34 @@
-<h5 class="card-header text-danger text-center" style="padding-top: 10px">Take New Doctor Appointment</h5>
+<h5 class="card-header text-danger text-center" style="padding-top: 10px">All Appointments</h5>
 <table class="table table-striped table-bordered table-sm row-border hover"
        id="appointmentTable">
   <thead>
   <tr>
     <th>Patient Name</th>
-    <th>Patient Email</th>
+    <th>Contact</th>
     <th>Gender</th>
     <th>Age</th>
-    <th>BloodGroup</th>
-    <th>Contact</th>
-    <th>Address</th>
-    <th>City</th>
     <th>Problem</th>
+    <th>Doctor Name</th>
+    <th>Prescription</th>
+    <th>Appointment Take Date</th>
     <th>Appointment Date</th>
+    <th>Status</th>
+    <th>Price</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let p of appointmentsList">
     <td>{{ p.fullName }}</td>
-    <td>{{ p.email }}</td>
+    <td>{{ p.contact }}</td>
     <td>{{ p.gender }}</td>
     <td>{{ p.age }}</td>
-    <td>{{ p.bloodGroup }}</td>
-    <td>{{ p.contact }}</td>
-    <td> {{ p.address }}</td>
-    <td>{{ p.city }}</td>
     <td> {{ p.problem}}</td>
-    <td> {{ p.createdDate }} </td>
+    <td>{{ p.doctorName }}</td>
+    <td>{{ p.prescription }}</td>
+    <td>{{ p.createdDate }}</td>
+    <td>{{ p.updatedDate }}</td>
+    <td>{{ p.status }}</td>
+    <td> {{ p.price }} </td>
   </tr>
   </tbody>
 </table>
