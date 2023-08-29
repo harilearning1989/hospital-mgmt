@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {PatientService} from "../../../services/patient/patient.service";
-import {PatientHistory} from "../../../models/patient-history";
 import {DoctorService} from "../../../services/doctor/doctor.service";
+import {Doctor} from "../../../models/doctor";
 
 @Component({
   selector: 'app-view',
@@ -10,23 +9,21 @@ import {DoctorService} from "../../../services/doctor/doctor.service";
 })
 export class ViewComponent implements OnInit {
 
-  data: any = [];
-  form: PatientHistory = new PatientHistory();
-  isSuccessful = false;
+  doctorsList: Doctor[];
   displayStyle = "none";
   constructor(private doctorService: DoctorService){
 
   }
 
   ngOnInit(): void {
-    this.users();
+    this.listAllDoctors();
   }
 
-  users(): void {
+  listAllDoctors(): void {
     this.doctorService
-      .users()
+      .listAllDoctors()
       .subscribe((response: any) => {
-        this.data = response;
+        this.doctorsList = response.data;
         setTimeout(()=>{
           $('#patientDataTable').DataTable( {
             responsive: true,
@@ -41,9 +38,7 @@ export class ViewComponent implements OnInit {
       },error => console.error(error));
   }
 
-  showPatientHistoryOpenPopUp(book: PatientHistory) {
-    this.isSuccessful = false;
-    this.form = book;
+  showPatientHistoryOpenPopUp(d: Doctor) {
     this.displayStyle = "block";
   }
   showPatientHistoryClosePopup() {

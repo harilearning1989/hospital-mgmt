@@ -8,23 +8,25 @@
     <th>Email</th>
     <th>Specialist</th>
     <th>Experience</th>
+    <th>Blood Group</th>
     <th>Age</th>
     <th>Phone</th>
     <th>Address</th>
-    <th>Action</th>
+    <th>Status</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of data" (click)="showPatientHistoryOpenPopUp(user)">
-    <td>{{ user.name }}</td>
-    <td>{{ user.username }}</td>
-    <td>{{ user.email }}</td>
-    <td>{{ user.phone }}</td>
-    <td>{{ user.address.street }}</td>
-    <td> {{ user.address.city }}</td>
-    <td>{{ user.address.street }}</td>
-    <td> {{ user.address.city }}</td>
-    <td> {{ user.address.city }}</td>
+  <tr *ngFor="let d of doctorsList" (click)="showPatientHistoryOpenPopUp(d)">
+    <td>{{ d.firstName }}</td>
+    <td>{{ d.firstName }}</td>
+    <td>{{ d.email }}</td>
+    <td>{{ d.specialist }}</td>
+    <td>{{ d.experience }}</td>
+    <td>{{ d.bloodGroup }}</td>
+    <td>{{ d.age }}</td>
+    <td>{{ d.contact }}</td>
+    <td>{{ d.address }}</td>
+    <td>Active</td>
   </tr>
   </tbody>
 </table>

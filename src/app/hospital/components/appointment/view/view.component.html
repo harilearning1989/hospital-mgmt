@@ -1,0 +1,32 @@
+<h5 class="card-header text-danger text-center" style="padding-top: 10px">Take New Doctor Appointment</h5>
+<table class="table table-striped table-bordered table-sm row-border hover"
+       id="appointmentTable">
+  <thead>
+  <tr>
+    <th>Patient Name</th>
+    <th>Patient Email</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>BloodGroup</th>
+    <th>Contact</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Problem</th>
+    <th>Appointment Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let p of appointmentsList">
+    <td>{{ p.fullName }}</td>
+    <td>{{ p.email }}</td>
+    <td>{{ p.gender }}</td>
+    <td>{{ p.age }}</td>
+    <td>{{ p.bloodGroup }}</td>
+    <td>{{ p.contact }}</td>
+    <td> {{ p.address }}</td>
+    <td>{{ p.city }}</td>
+    <td> {{ p.problem}}</td>
+    <td> {{ p.createdDate }} </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {PatientService} from "../../../services/patient/patient.service";
-import {Patient} from "../../../models/patient";
+import {Appointment} from "../../../models/appointment";
+import {AppointmentService} from "../../../services/appointment/appointment.service";
 
 @Component({
   selector: 'app-view',
@@ -9,30 +9,22 @@ import {Patient} from "../../../models/patient";
 })
 export class ViewComponent implements OnInit {
 
-  patientList: Patient[];
-  displayStyle = "none";
-  constructor(private patientService: PatientService) {
+  appointmentsList: Appointment[];
+  constructor(private appointmentService: AppointmentService) {
 
   }
 
   ngOnInit(): void {
-    this.listAllPatients();
+    this.listAllAppointments();
   }
 
-  showPatientHistoryOpenPopUp(p: Patient) {
-    this.displayStyle = "block";
-  }
-  showPatientHistoryClosePopup() {
-    this.displayStyle = "none";
-  }
-
-  private listAllPatients() {
-    this.patientService
-      .listAllPatients()
+  private listAllAppointments() {
+    this.appointmentService
+      .listAllAppointments()
       .subscribe((response: any) => {
-        this.patientList = response.data;
+        this.appointmentsList = response.data;
         setTimeout(() => {
-          $('#patientDataTable').DataTable({
+          $('#appointmentTable').DataTable({
             responsive: true,
             pagingType: 'full_numbers',
             pageLength: 5,
@@ -44,4 +36,5 @@ export class ViewComponent implements OnInit {
         }, 1);
       }, error => console.error(error));
   }
+
 }

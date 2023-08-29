@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {PatientService} from "../../../services/patient/patient.service";
 import {AdminService} from "../../../services/admin/admin.service";
+import {Admin} from "../../../models/admin";
 
 @Component({
   selector: 'app-view',
@@ -9,20 +9,20 @@ import {AdminService} from "../../../services/admin/admin.service";
 })
 export class ViewComponent implements OnInit {
 
-  data: any = [];
+  adminList: Admin[];
   constructor(private adminService: AdminService){
 
   }
 
   ngOnInit(): void {
-    this.users();
+    this.listAllAdminDetails();
   }
 
-  users(): void {
+  listAllAdminDetails(): void {
     this.adminService
-      .users()
+      .listAllAdminDetails()
       .subscribe((response: any) => {
-        this.data = response;
+        this.adminList = response.data;
         setTimeout(()=>{
           $('#patientDataTable').DataTable( {
             responsive: true,

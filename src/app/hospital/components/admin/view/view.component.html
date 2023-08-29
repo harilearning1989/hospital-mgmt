@@ -3,30 +3,32 @@
        id="patientDataTable">
   <thead>
   <tr>
-    <th>Patient Name</th>
-    <th>Patient Contact</th>
-    <th>Problem</th>
-    <th>Doctor Name</th>
-    <th>Prescription</th>
-    <th>Appointment Take Date</th>
-    <th>Appointment Date</th>
-    <th>Appointment Status</th>
-    <th>Appointment Price</th>
-    <th>Action</th>
+    <th>Admin Name</th>
+    <th>Admin Contact</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Blood Group</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Pincode</th>
+    <th>Created Date</th>
+    <th>Status</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of data">
-    <td>{{ user.id }}</td>
-    <td>{{ user.name }}</td>
-    <td>{{ user.username }}</td>
-    <td>{{ user.email }}</td>
-    <td>{{ user.phone }}</td>
-    <td>{{ user.address.street }}</td>
-    <td> {{ user.address.city }}</td>
-    <td>{{ user.address.street }}</td>
-    <td> {{ user.address.city }}</td>
-    <td> {{ user.address.city }}</td>
+  <tr *ngFor="let a of adminList">
+    <td>{{ a.firstName }}</td>
+    <td>{{ a.contact }}</td>
+    <td>{{ a.email }}</td>
+    <td>{{ a.gender }}</td>
+    <td>{{ a.age }}</td>
+    <td>{{ a.bloodGroup }}</td>
+    <td>{{ a.address }}</td>
+    <td>{{ a.city }}</td>
+    <td>{{ a.pincode}}</td>
+    <td>{{ a.createdDate }}</td>
+    <td>Active</td>
   </tr>
   </tbody>
 </table>

@@ -12,11 +12,13 @@ import {Patient} from "../../models/patient";
 export class PatientService {
   private httpLink = {
     loginUrl: environment.apiUrl + 'login',
-    registerUrl: environment.apiUrl + 'register'
+    registerUrl: environment.apiUrl + 'register',
+    listAllPatientsUrl: environment.apiUrl + 'patient/list'
   }
 
   private userSubject: BehaviorSubject<Patient | null>;
   public user: Observable<Patient | null>;
+
   constructor(
     private router: Router,
     private http: HttpClient
@@ -26,7 +28,7 @@ export class PatientService {
   }
 
   login(username: string, password: string) {
-    return this.http.post<Patient>( this.httpLink.loginUrl, { username, password })
+    return this.http.post<Patient>(this.httpLink.loginUrl, {username, password})
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         this.userSubject.next(user);
@@ -44,6 +46,7 @@ export class PatientService {
   isUserSignedin() {
     return localStorage.getItem('user') !== null;
   }
+
   register(user: Patient) {
     return this.http.post(this.httpLink.registerUrl, user);
   }
@@ -58,6 +61,7 @@ export class PatientService {
 
     this.router.navigateByUrl('login');
   }
+
   getAll() {
     return this.http.get<Patient[]>(`${environment.apiUrl}/users`);
   }
@@ -77,7 +81,7 @@ export class PatientService {
         // update stored user if the logged in user updated their own record
         if (id == this.userValue?.id) {
           // update local storage
-          const user = { ...this.userValue, ...params };
+          const user = {...this.userValue, ...params};
           localStorage.setItem('user', JSON.stringify(user));
 
           // publish updated user to subscribers
@@ -98,7 +102,14 @@ export class PatientService {
       }));
   }
 
-  users(): Observable<any>{
+  users(): Observable<any> {
     return this.http.get('https://jsonplaceholder.typicode.com/users');
+  }
+
+  listAllPatients(): Observable<Patient> {
+    return this.http.get(this.httpLink.listAllPatientsUrl)
+      .pipe(map(x => {
+        return x;
+      }));
   }
 }

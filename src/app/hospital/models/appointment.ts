@@ -1,17 +1,18 @@
-export class Admin {
+export class Appointment {
   id?: string;
-  firstName?: string;
-  lastName?: string;
-  username?: string;
-  password?: string;
+  fullName?: string;
   email?: string;
   gender?: string;
   contact?: string;
   age?: string;
   bloodGroup?: string;
+  problem?: string;
   address?: string;
-  city?: string;
-  pincode?: string;
+  status?: string;
+  doctorName?: string;
+  prescription?: string;
+  price?: string;
   createdDate?: string;
   updatedDate?: string;
+
 }

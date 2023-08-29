@@ -19,6 +19,9 @@ const createDoctorModule = () => import('./hospital/modules/doctor/create/create
 const viewDoctorModule = () => import('./hospital/modules/doctor/view/view.module').then(x => x.ViewModule);
 const updateDoctorModule = () => import('./hospital/modules/doctor/update/update.module').then(x => x.UpdateModule);
 const viewMyAppointmentsModule = () => import('./hospital/modules/doctor/view-appointments/view-appointments.module').then(x => x.ViewAppointmentsModule);
+const viewAppointmentModule = () => import('./hospital/modules/appointment/view/view.module').then(x => x.ViewModule);
+const updateAppointmentModule = () => import('./hospital/modules/appointment/update/update.module').then(x => x.UpdateModule);
+const takeAppointmentModule = () => import('./hospital/modules/appointment/create/create.module').then(x => x.CreateModule);
 
 const routes: Routes = [
   {path: '', redirectTo: '', pathMatch: 'full'},
@@ -40,6 +43,10 @@ const routes: Routes = [
   {path: 'createDoctor', loadChildren: createDoctorModule},
   {path: 'viewDoctor', loadChildren: viewDoctorModule},
   {path: 'updateDoctor', loadChildren: updateDoctorModule},
+
+  {path: 'takeAppointment', loadChildren: takeAppointmentModule},
+  {path: 'viewAppointment', loadChildren: viewAppointmentModule},
+  {path: 'updateAppointment', loadChildren: updateAppointmentModule},
 
   {path: '**', data: {title: 'Page Not Module'}, loadChildren: pageNotFoundModule}
 ];
