@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from "../../../../environments/environment";
 import {BehaviorSubject, Observable} from "rxjs";
 import {Router} from "@angular/router";
@@ -12,7 +12,7 @@ import {map} from "rxjs/operators";
 export class LoginService {
 
   private httpLink = {
-    loginUrl: environment.apiUrl + 'login',
+    loginUrl: environment.apiUrl + 'auth/signin',
     registerUrl: environment.apiUrl + 'register'
   }
 
@@ -30,6 +30,7 @@ export class LoginService {
     return this.http.post<User>( this.httpLink.loginUrl, { username, password })
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
+        console.log(user)
         user.username = username;
         localStorage.setItem('user', JSON.stringify(user));
         this.userSubject.next(user);

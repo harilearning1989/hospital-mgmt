@@ -5,6 +5,7 @@ import {InputValidation} from "../../validations/input-validation";
 import {Utils} from "../../util/utils";
 import {first} from "rxjs";
 import {LoginService} from "../../services/login/login.service";
+import {SharedService} from "../../services/shared/shared.service";
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private sharedService: SharedService
   ) {
   }
 
@@ -48,8 +50,11 @@ export class LoginComponent implements OnInit {
           //const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
           //this.router.navigateByUrl(returnUrl);
           this.errorMessage = '';
-          this.router.navigateByUrl('/admin');
-          this.router.navigateByUrl('/doctor');
+          console.log('selected nav item ');
+          this.sharedService.emitNavChangeEvent('Refresh');
+
+          this.router.navigateByUrl('/home');
+
         },
         error: error => {
           this.router.navigateByUrl('/admin');
