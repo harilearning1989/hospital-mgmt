@@ -27,11 +27,11 @@ export class ViewComponent implements OnInit {
           $('#appointmentTable').DataTable({
             responsive: true,
             pagingType: 'full_numbers',
-            pageLength: 5,
+            pageLength: 20,
             processing: true,
             scrollCollapse: true,
-            scrollY: '200px',
-            lengthMenu: [5, 10, 25]
+            scrollY: '550px',
+            lengthMenu: [15, 30, 45]
           });
         }, 1);
       }, error => console.error(error));

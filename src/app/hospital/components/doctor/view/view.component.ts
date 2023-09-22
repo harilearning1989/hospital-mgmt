@@ -25,13 +25,13 @@ export class ViewComponent implements OnInit {
       .subscribe((response: any) => {
         this.doctorsList = response.data;
         setTimeout(()=>{
-          $('#patientDataTable').DataTable( {
+          $('#doctorDataTable').DataTable( {
             responsive: true,
             pagingType: 'full_numbers',
-            pageLength: 5,
+            pageLength: 20,
             processing: true,
             scrollCollapse: true,
-            scrollY: '200px',
+            scrollY: '550px',
             lengthMenu : [5, 10, 25]
           } );
         }, 1);
