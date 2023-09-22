@@ -93,22 +93,6 @@
         <tr>
           <td>
             <div class="mb-3">
-              <label class="form-label">Problem</label>
-              <input type="text" formControlName="problem" class="form-control"
-                     placeholder="Enter Problem"
-                     (keypress)="omitSpecialChars($event)"
-                     [ngClass]="{ 'is-invalid': submitted && f.problem.errors }"/>
-              <div *ngIf="submitted && f.problem.errors" class="invalid-feedback">
-                <div *ngIf="f.problem.errors.required">Problem is required</div>
-                <div *ngIf="f.problem.errors.cannotContainSpace">Problem cannot contain spaces</div>
-                <div *ngIf="f.problem.errors.minlength">Problem must be at least 4 characters</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="mb-3">
               <label class="form-label">City</label>
               <input type="text" formControlName="city" class="form-control"
                      placeholder="Enter City"
@@ -118,6 +102,36 @@
                 <div *ngIf="f.city.errors.required">City is required</div>
                 <div *ngIf="f.city.errors.cannotContainSpace">City cannot contain spaces</div>
                 <div *ngIf="f.city.errors.minlength">City must be at least 4 characters</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="mb-3">
+              <label class="form-label">Pincode</label>
+              <input type="text" formControlName="city" class="form-control"
+                     placeholder="Enter Pincode"
+                     (keypress)="omitSpecialChars($event)"
+                     [ngClass]="{ 'is-invalid': submitted && f.city.errors }"/>
+              <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                <div *ngIf="f.city.errors.required">City is required</div>
+                <div *ngIf="f.city.errors.cannotContainSpace">City cannot contain spaces</div>
+                <div *ngIf="f.city.errors.minlength">City must be at least 4 characters</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="mb-3">
+              <label class="form-label">Problem</label>
+              <textarea type="text" formControlName="problem" class="form-control"
+                        placeholder="Enter Problem"
+                        (keypress)="omitSpecialChars($event)"
+                        [ngClass]="{ 'is-invalid': submitted && f.problem.errors }"></textarea>
+              <div *ngIf="submitted && f.problem.errors" class="invalid-feedback">
+                <div *ngIf="f.problem.errors.required">Problem is required</div>
+                <div *ngIf="f.problem.errors.cannotContainSpace">Problem cannot contain spaces</div>
+                <div *ngIf="f.problem.errors.minlength">Problem must be at least 4 characters</div>
               </div>
             </div>
           </td>

@@ -3,17 +3,10 @@
   <nav class="navbar navbar-expand-xl bg-light fixed-top">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link text-danger navbar-brand"
-           style="padding-left: 20px"
-           routerLink="./home" href="#">Hospital Management System</a>
+          <a class="nav-link text-danger navbar-brand"
+             style="padding-left: 20px"
+             routerLink="./home" href="#">Hospital Management System</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-danger" routerLink="./about" href="#">About Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-danger" routerLink="./contact" href="#">Contact Us</a>
-      </li>
-
       <div *ngIf="userName == null">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -44,29 +37,38 @@
           <a class="nav-link text-danger" routerLink="./createPatient" href="#">Register Patient</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link text-danger" routerLink="./viewAppointment" href="#">Appointments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger" routerLink="./takeAppointment" href="#">Take Appointment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger" routerLink="./checkAllAppointments" href="#">All Appointments</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link text-danger" routerLink="./viewPatient" href="#">Patients</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-danger" routerLink="./viewDoctor" href="#">Doctors</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-danger" routerLink="./checkAllAppointments" href="#">All Appointments</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-danger" routerLink="./createAdmin" href="#">Register Admin</a>
+          <a class="nav-link text-danger" routerLink="./createDoctor" href="#">Register Doctor</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-danger" routerLink="./viewAdmin" href="#">Admins</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-danger" routerLink="./viewAppointment" href="#">Appointments</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-danger" routerLink="./takeAppointment" href="#">Take Appointment</a>
+          <a class="nav-link text-danger" routerLink="./createAdmin" href="#">Register Admin</a>
         </li>
         <!--<li class="nav-item">
           <a class="nav-link text-danger" routerLink="./updateAppointment" href="#">Update Appointment</a>
         </li>-->
+        <!--<li class="nav-item">
+          <a class="nav-link text-danger" routerLink="./about" href="#">About</a>
+        </li>-->
+        <li class="nav-item">
+          <a class="nav-link text-danger" routerLink="./contact" href="#">Contact</a>
+        </li>
       </ul>
     </div>
     <div *ngIf="userName != null">
